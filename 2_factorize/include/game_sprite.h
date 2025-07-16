@@ -7,6 +7,8 @@
 #include <random>
 #include <SFML/Graphics.hpp>
 
+#include "resource_manager.h"
+
 // Classe Sprite personnalisée
 class GameSprite {
     sf::Vector2f position_;

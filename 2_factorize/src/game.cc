@@ -23,6 +23,8 @@ Game::Game() : window_(sf::VideoMode({1200, 800}), "Jeu de Sprites SFML", sf::St
     std::cout << "- ÉCHAP : Quitter le jeu" << std::endl;
     std::cout << "================================" << std::endl;
 
+    resource_manager::Setup();
+
 }
 
 void Game::Run(){

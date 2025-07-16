@@ -52,10 +52,8 @@ void GameSprite::Update(const float deltaTime) {
 void GameSprite::Draw(sf::RenderWindow& window) {
     if (!is_active_) return;
 
-    const sf::Texture texture(std::format("_assets/splats/splat{:02d}.png", texture_idx_));
-
-    sf::Sprite sprite(texture);
-    sprite.setOrigin({static_cast<float>(texture.getSize().x) / 2.0f, static_cast<float>(texture.getSize().y) / 2.0f});
+    sf::Sprite sprite(resource_manager::texture(static_cast<TextureManager::Texture>(texture_idx_)));
+    sprite.setOrigin({static_cast<float>(sprite.getTexture().getSize().x) / 2.0f, static_cast<float>(sprite.getTexture().getSize().y) / 2.0f});
     sprite.setColor(current_color_);
     sprite.setScale({scale_, scale_});
     sprite.setPosition(position_);

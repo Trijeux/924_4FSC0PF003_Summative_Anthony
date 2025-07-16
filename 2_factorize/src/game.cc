@@ -4,16 +4,14 @@
 #include "game.h"
 
 Game::Game() : window_(sf::VideoMode({1200, 800}), "Jeu de Sprites SFML", sf::Style::Close),
-         sprite_manager_(window_.getSize()),
-         info_text_(font_),
-         instructions_text_(font_){
+               sprite_manager_(window_.getSize())
+{
 
     window_.setFramerateLimit(60);
+    resource_manager::Setup();
 
-    // Chargement de la police (optionnel - utilise la police par défaut si échec)
-    if (!font_.openFromFile("_assets/fonts/arial.ttf")) {
-        std::cout << "Police arial.ttf non trouvée, utilisation de la police par défaut" << std::endl;
-    }
+    info_text_ = sf::Text(resource_manager::font(FontManager::Font::kArial));
+    instructions_text_ = sf::Text(resource_manager::font(FontManager::Font::kArial));
 
     std::cout << "=== JEU DE SPRITES SFML ===" << std::endl;
     std::cout << "Contrôles :" << std::endl;
@@ -22,9 +20,6 @@ Game::Game() : window_(sf::VideoMode({1200, 800}), "Jeu de Sprites SFML", sf::St
     std::cout << "- C : Effacer tous les sprites" << std::endl;
     std::cout << "- ÉCHAP : Quitter le jeu" << std::endl;
     std::cout << "================================" << std::endl;
-
-    resource_manager::Setup();
-
 }
 
 void Game::Run(){
@@ -40,17 +35,15 @@ void Game::Run(){
 
 void Game::SetupText(){
     // Texte d'informations
-    info_text_.setFont(font_);
-    info_text_.setCharacterSize(20);
-    info_text_.setFillColor(sf::Color::White);
-    info_text_.setPosition({10, 10});
+    info_text_->setCharacterSize(20);
+    info_text_->setFillColor(sf::Color::White);
+    info_text_->setPosition({10, 10});
 
     // Texte d'instructions
-    instructions_text_.setFont(font_);
-    instructions_text_.setCharacterSize(16);
-    instructions_text_.setFillColor(sf::Color::Yellow);
-    instructions_text_.setPosition({10, static_cast<float>(window_.getSize().y - 80)});
-    instructions_text_.setString(
+    instructions_text_->setCharacterSize(16);
+    instructions_text_->setFillColor(sf::Color::Yellow);
+    instructions_text_->setPosition({10, static_cast<float>(window_.getSize().y - 80)});
+    instructions_text_->setString(
         "ESPACE: Sprite aléatoire | CLIC GAUCHE: Sprite à la souris | C: Effacer | S: Stats | ÉCHAP: Quitter");
 }
 
@@ -112,8 +105,8 @@ void Game::Render(){
     sprite_manager_.Draw(window_);
 
     // Dessiner l'interface
-    window_.draw(info_text_);
-    window_.draw(instructions_text_);
+    window_.draw(*info_text_);
+    window_.draw(*instructions_text_);
 
     window_.display();
 }

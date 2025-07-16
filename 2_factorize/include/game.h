@@ -15,9 +15,8 @@ class Game {
     sf::RenderWindow window_;
     GameSpriteManager sprite_manager_;
     sf::Clock clock_;
-    sf::Font font_;
-    sf::Text info_text_;
-    sf::Text instructions_text_;
+    std::optional<sf::Text> info_text_;
+    std::optional<sf::Text> instructions_text_;
 
 public:
     Game();

@@ -16,7 +16,9 @@ public:
 		kSplat18, kSplat19, kSplat20, kSplat21, kSplat22, kSplat23,
 		kSplat24, kSplat25, kSplat26, kSplat27, kSplat28, kSplat29,
 		kSplat30, kSplat31, kSplat32, kSplat33, kSplat34, kSplat35,
-		kMax
+		kIndustrialTile00,kIndustrialTile01,kIndustrialTile02,kIndustrialTile03,
+		kIndustrialTile04,kIndustrialTile05,kIndustrialTile06,kIndustrialTile07,
+		kIndustrialTile08,kIndustrialTile09,kIndustrialTile10, kMax
 	};
 
 	void Setup();
@@ -33,7 +35,10 @@ private:
 		"splat12", "splat13", "splat14", "splat15", "splat16", "splat17",
 		"splat18", "splat19", "splat20", "splat21", "splat22", "splat23",
 		"splat24", "splat25", "splat26", "splat27", "splat28", "splat29",
-		"splat30", "splat31", "splat32", "splat33", "splat34", "splat35"
+		"splat30", "splat31", "splat32", "splat33", "splat34", "splat35",
+		"IndustrialTile00", "IndustrialTile01", "IndustrialTile02", "IndustrialTile03",
+		"IndustrialTile04","IndustrialTile05","IndustrialTile06", "IndustrialTile07",
+		"IndustrialTile08", "IndustrialTile09", "IndustrialTile10"
 	};
 
 	std::string path_splats = "_assets/splats/";

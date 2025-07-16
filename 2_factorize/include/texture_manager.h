@@ -7,9 +7,10 @@
 class TextureManager
 {
 public:
+	//Nom donner pour l'enume pour appler dans le code la texture
 	enum class Texture
 	{
-		kSplat00, kSplat01, kSplat02, kSplat03, kSplat04, kSplat05,
+		kTest00, kSplat01, kSplat02, kSplat03, kSplat04, kSplat05,
 		kSplat06, kSplat07, kSplat08, kSplat09, kSplat10, kSplat11,
 		kSplat12, kSplat13, kSplat14, kSplat15, kSplat16, kSplat17,
 		kSplat18, kSplat19, kSplat20, kSplat21, kSplat22, kSplat23,
@@ -24,9 +25,10 @@ public:
 
 protected:
 private:
+	//Nom donner pour appler dans le dossier (que des .png)
 	const std::array<std::string, static_cast<int>(Texture::kMax)> names_textures_
 	{
-		"splat00", "splat01", "splat02", "splat03", "splat04", "splat05",
+		"test00", "splat01", "splat02", "splat03", "splat04", "splat05",
 		"splat06", "splat07", "splat08", "splat09", "splat10", "splat11",
 		"splat12", "splat13", "splat14", "splat15", "splat16", "splat17",
 		"splat18", "splat19", "splat20", "splat21", "splat22", "splat23",
@@ -34,7 +36,7 @@ private:
 		"splat30", "splat31", "splat32", "splat33", "splat34", "splat35"
 	};
 
-	std::string path = "_assets/splats/";
+	std::string path_splats = "_assets/splats/";
 
 	std::array<sf::Texture, static_cast<int>(Texture::kMax)> textures_;
 

@@ -23,6 +23,6 @@ void TextureManager::LoadAllTextures()
 
 	for(int i = 0; i < textures_.size(); i++)
 	{
-			if(!textures_.at(i).loadFromFile(path + names_textures_.at(i) + ".png")) std::cout << "Error loading splat0" + std::to_string(i) + " texture " << std::endl;
+			if(!textures_.at(i).loadFromFile(path_splats + names_textures_.at(i) + ".png")) std::cout << "Error loading " + names_textures_.at(i) + " texture " << std::endl;
 	}
 }

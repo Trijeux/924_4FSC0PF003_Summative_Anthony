@@ -52,7 +52,12 @@ void GameSprite::Update(const float deltaTime) {
 void GameSprite::Draw(sf::RenderWindow& window) {
     if (!is_active_) return;
 
-    sf::Sprite sprite(resource_manager::texture(static_cast<TextureManager::Texture>(texture_idx_)));
+     sf::Sprite sprite(resource_manager::texture(static_cast<TextureManager::Texture>(texture_idx_)));
+
+    // Test du Texture Manager
+    //sf::Sprite sprite(resource_manager::texture(TextureManager::Texture::kTest00));
+
+
     sprite.setOrigin({static_cast<float>(sprite.getTexture().getSize().x) / 2.0f, static_cast<float>(sprite.getTexture().getSize().y) / 2.0f});
     sprite.setColor(current_color_);
     sprite.setScale({scale_, scale_});

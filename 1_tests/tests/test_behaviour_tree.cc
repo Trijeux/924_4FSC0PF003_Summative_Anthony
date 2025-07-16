@@ -83,6 +83,9 @@ TEST(BehaviourTree, no_loop_one_child)
 
 	action_executed = true;
 	EXPECT_EQ(no_loop.Tick(), Status::kSuccess);
+
+	//???
+	check_conditions = false;
 	EXPECT_EQ(no_loop.Tick(), Status::kSuccess);
 }
 
@@ -148,7 +151,9 @@ TEST(BehaviourTree, selector_one_child)
 
 	action_executed = true;
 	EXPECT_EQ(selector.Tick(), Status::kSuccess);
-	EXPECT_EQ(selector.Tick(), Status::kSuccess);
+
+	check_conditions = false;
+	EXPECT_EQ(selector.Tick(), Status::kFailure);
 }
 
 TEST(BehaviourTree, selector_multiple_children)
